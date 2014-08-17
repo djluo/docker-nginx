@@ -1,0 +1,17 @@
+server {
+  listen       80;
+  server_name  localhost;
+
+  root       /data/html;
+  access_log /data/logs/access.log;
+
+  location = /favicon.ico {
+    access_log    off;
+    log_not_found off;
+  }
+
+  location / {
+    autoindex on;
+  }
+}
+# vim:set et ts=2 sw=2: #
