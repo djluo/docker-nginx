@@ -22,6 +22,7 @@ cd ~/docker-nginx
 sudo docker build -t nginx   .
 sudo docker build -t nginx:3 .
 </pre>
+
 ## 使用：
 1. 建立主目录：
 <pre>
@@ -78,6 +79,7 @@ echo 'hello world!!!' | sudo tee -a index.html
 
 curl -x 127.0.0.1:80 http://www.example.com/index.html
 <pre>
+
 ## 日常维护：
 1. 日志切割：
 <pre>
