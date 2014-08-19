@@ -82,19 +82,10 @@ curl -x 127.0.0.1:80 http://www.example.com/index.html
 </pre>
 
 ## 日常维护：
-1. 日志切割：
-<pre>
-sudo docker kill -s USR1 $CID
-</pre>
-2. 重新导入配置：
-<pre>
-sudo docker kill -s HUP $CID
-</pre>
-3. 停止服务：
-<pre>
-sudo docker stop  $CID
-</pre>
-4. 开启服务：
-<pre>
-sudo docker start  $CID
-</pre>
+
+| 操作       |命令                           |
+|------------|-------------------------------|
+|日志切割    |`sudo docker kill -s USR1 $CID`|
+|重新导入配置|`sudo docker kill -s HUP $CID` |
+|停止服务    |`sudo docker stop  $CID`       |
+|开启服务    |`sudo docker start $CID`       |
