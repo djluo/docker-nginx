@@ -1,5 +1,5 @@
 # 介绍
-基于CentOS 7的Nginx
+基于CentOS 7的Nginx 容器。
 
 ### 目录结构约定：
 约定目的: 与docker无关,自用,对于虚拟主机web-name而言所有文件都在它自己目录里了。
