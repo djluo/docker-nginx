@@ -10,10 +10,6 @@ RUN yum -y install nginx; yum clean all
 
 EXPOSE 80
 
-VOLUME ["/home/nginx/conf", "/home/nginx/vhost"]
-
-RUN rm -rfv /etc/nginx && ln -sv /home/nginx/conf /etc/nginx
-
-WORKDIR /home/nginx
+VOLUME ["/etc/nginx"]
 
 CMD [ "/usr/sbin/nginx" ]
