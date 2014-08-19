@@ -73,12 +73,12 @@ CID=$(sudo docker run -d -p 80:80   \
        nginx /usr/sbin/nginx)
 </pre>
 7. 测试：
-<pre>
+```shell
 cd /home/nginx/apps/www.example.com/html
 echo 'hello world!!!' | sudo tee -a index.html
 
 curl -x 127.0.0.1:80 http://www.example.com/index.html
-<pre>
+```
 
 ## 日常维护：
 1. 日志切割：
