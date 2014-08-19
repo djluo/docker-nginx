@@ -92,9 +92,9 @@ sudo docker kill -s HUP $CID
 </pre>
 3. 停止服务：
 <pre>
-sudo docker stop USR1 $CID
+sudo docker stop  $CID
 </pre>
 4. 开启服务：
 <pre>
-sudo docker start USR1 $CID
+sudo docker start  $CID
 </pre>
