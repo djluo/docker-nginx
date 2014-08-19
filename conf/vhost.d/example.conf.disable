@@ -2,8 +2,8 @@ server {
   listen       80;
   server_name  localhost;
 
-  root       /data/html;
-  access_log /data/logs/access.log;
+  root       /home/nginx/apps/www.example.com/html;
+  access_log /home/nginx/apps/www.example.com/logs/access.log;
 
   location = /favicon.ico {
     access_log    off;
