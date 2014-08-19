@@ -1,14 +1,14 @@
 # 介绍
 基于CentOS 7的Nginx
 
-### 目录结构约定(与docker无关,自用)：
-|   目录                           |              用途                                        |
-| -------------------------------- | ------------------------------------------------------   |
-| /home/nginx/conf/                | Nginx的主配置包含nginx.conf/fastcgi.conf/mime.types等    |
-| /home/nginx/conf/vhost.d/        | Nginx的子配置包含server{}段的配置,但建议都是硬link文件   |
-| /home/nginx/apps/web-name/conf/  | 当前虚拟主机的子配置,上方vhost.d里硬link的源             |
-| /home/nginx/apps/web-name/html/  | html、php、png、css、js等文件,并作为当前虚拟主机的根目录 |
-| /home/nginx/apps/web-name/logs/  | access和error日志等                                      |
+### 目录结构约定(与docker无关,自用,对于虚拟主机web-name而言所有文件都在它自己目录里了)：
+|  目录                         |             用途                                     |
+|-------------------------------|------------------------------------------------------|
+|/home/nginx/conf/              |Nginx的主配置包含nginx.conf/fastcgi.conf/mime.types等 |
+|/home/nginx/conf/vhost.d/      |Nginx的子配置包含server{}段的配置,但建议都是硬link文件|
+|/home/nginx/apps/web-name/conf/|当前虚拟主机的子配置,上方vhost.d里硬link的源          |
+|/home/nginx/apps/web-name/html/|html/php/png/css/js等文件,并作为当前虚拟主机的根目录  |
+|/home/nginx/apps/web-name/logs/|access和error日志等                                   |
 
 ## 创建镜像：
 1. 获取：
