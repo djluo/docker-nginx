@@ -1,0 +1,4 @@
+deb http://nginx.org/packages/debian/ wheezy           nginx
+deb http://mirrors.163.com/debian/    wheezy           main contrib non-free
+deb http://mirrors.163.com/debian/    wheezy-updates   main contrib non-free
+deb http://mirrors.163.com/debian/    wheezy-backports main contrib non-free

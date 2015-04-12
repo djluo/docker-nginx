@@ -1,15 +1,27 @@
-# Nginx
-#
-# Version 3
-
-FROM centos
+FROM docker.xlands-inc.com/baoyu/debian
 MAINTAINER djluo <dj.luo@baoyugame.com>
 
-RUN rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
-RUN yum -y install nginx; yum clean all
+ADD ./sources.list /etc/apt/
 
-EXPOSE 80
+RUN export http_proxy="http://172.17.42.1:8080/" \
+    && export DEBIAN_FRONTEND=noninteractive     \
+    && apt-key adv --keyserver pgp.mit.edu \
+                   --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62 \
+    && apt-get update \
+    && apt-get install -y nginx \
+    && apt-get clean    \
+    && unset http_proxy \
+    && unset DEBIAN_FRONTEND   \
+    && mkdir -p /var/log/nginx \
+    && rm -rf /etc/nginx/*     \
+    && rm -rf usr/share/locale \
+    && rm -rf usr/share/man    \
+    && rm -rf usr/share/doc    \
+    && rm -rf usr/share/info   \
+    && find var/lib/apt -type f -exec rm -fv {} \;
 
-VOLUME ["/etc/nginx"]
+ADD ./conf/              /etc/nginx/
+ADD ./entrypoint.pl      /entrypoint.pl
 
-CMD [ "/usr/sbin/nginx" ]
+ENTRYPOINT ["/entrypoint.pl"]
+CMD        ["/usr/sbin/nginx"]
