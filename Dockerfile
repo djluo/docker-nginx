@@ -1,14 +1,10 @@
-FROM docker.xlands-inc.com/baoyu/debian
+FROM docker.xlands-inc.com/baoyu/debian:8
 MAINTAINER djluo <dj.luo@baoyugame.com>
-
-ADD ./sources.list /etc/apt/
 
 RUN export http_proxy="http://172.17.42.1:8080/" \
     && export DEBIAN_FRONTEND=noninteractive     \
-    && apt-key adv --keyserver pgp.mit.edu \
-                   --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62 \
     && apt-get update \
-    && apt-get install -y nginx \
+    && apt-get install -y nginx-light \
     && apt-get clean    \
     && unset http_proxy \
     && unset DEBIAN_FRONTEND   \
